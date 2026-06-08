@@ -6,17 +6,21 @@
  *
  * Return: always
  */
-int main(boid){
+int main(void)
+{
 	int n;
 
 	srand(time(0));
-	n = rand() - RAND_Max /2;
-	if (n > 0){
+	n = rand() - RAND_Max / 2;
+	if (n > 0)
+	{
 		printf("%d is positive", n);
-	} else if (n < 0){
-		printf("%d is negative");
-	} else{
-		prinf("%d is zero");
+	} else if (n < 0)
+	{
+		printf("%d is negative", n);
+	} else
+	{
+		prinf("%d is zero", n);
 	}
 	return (0);
 }
