@@ -53,3 +53,7 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# Playing with my headers
+main.c
+_putchar.c
