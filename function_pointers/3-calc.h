@@ -4,9 +4,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
-    char *op;
-    int (*f)(int, int);
+/**
+ * struct op - structure operator
+ *
+ * @op: operator
+ * @f: function associated
+ */
+typedef struct op
+{
+	char *op;
+	int (*f)(int, int);
 } op_t;
 
 int op_add(int a, int b);
