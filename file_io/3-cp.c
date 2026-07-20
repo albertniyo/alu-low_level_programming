@@ -19,21 +19,21 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "usage: %s file_from file_to\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
 		exit(97);
 	}
 
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 	{
-		dprintf(STDERR_FILENO, "error: can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
 	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
 	{
-		dprintf(STDERR_FILENO, "error: can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close_file(file_from);
 		exit(99);
 	}
@@ -63,7 +63,7 @@ void copy_file(int fl_from, int fl_to, char *fd_from, char *fd_to)
 		bytes_written = write(fl_to, buffer, bytes_read);
 		if (bytes_written == -1 || bytes_written != bytes_read)
 		{
-			dprintf(STDERR_FILENO, "error: can't write to %s\n", fd_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", fd_to);
 			close_file(fl_from);
 			close_file(fl_to);
 			exit(99);
@@ -72,7 +72,7 @@ void copy_file(int fl_from, int fl_to, char *fd_from, char *fd_to)
 
 	if (bytes_read == -1)
 	{
-		dprintf(STDERR_FILENO, "error: can't read from file %s\n", fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fd_from);
 		close_file(fl_from);
 		close_file(fl_to);
 		exit(98);
@@ -87,7 +87,7 @@ void close_file(int file)
 {
 	if (close(file) == -1)
 	{
-		dprintf(STDERR_FILENO, "error: can't close file %d\n", file);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
 		exit(100);
 	}
 }
